@@ -2,7 +2,7 @@ Summary:	Gtk frontend for GNU lilypond
 Summary(pl):	Frontend Gtk na GNU lilypond
 Name:		denemo
 Version:	0.5.5
-Release:	2
+Release:	3
 License:	GPL
 Group:		X11/Applications/Multimedia
 Source0:	ftp://download.sourceforge.net/pub/sourceforge/denemo/%{name}-%{version}.tar.gz
@@ -46,13 +46,11 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install DESTDIR=$RPM_BUILD_ROOT
 
-gzip -9nf NEWS README TODO GOALS DESIGN AUTHORS
-
 %clean
 rm -rf ${RPM_BUILD_ROOT}
 
 %files
 %defattr(644,root,root,755)
-%doc *.gz
+%doc NEWS README TODO GOALS DESIGN AUTHORS
 %attr(755,root,root) %{_bindir}/*
 %{_datadir}/%{name}
