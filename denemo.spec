@@ -8,6 +8,8 @@ Group(de):	Applikationen/Laut
 Group(pl):	Aplikacje/D¼wiêk
 Source0:	http://download.sourceforge.net/denemo/%{name}-%{version}.tar.gz
 URL:		http://denemo.sourceforge.net/
+Requires:	lilypond
+Requires:	TiMidity++
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
