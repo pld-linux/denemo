@@ -1,0 +1,11 @@
+--- denemo-0.7.2a/src/view.cpp~	2004-08-06 02:59:25.000000000 +0200
++++ denemo-0.7.2a/src/view.cpp	2004-08-06 03:04:44.000000000 +0200
+@@ -274,7 +274,7 @@
+    * menubar, which is precisely what we want. */
+ #if GTK_MAJOR_VERSION > 1
+   /* this is very suspicious - a leading underscore shouldn't appear in this code surely */
+-  _gtk_accel_group_attach (accel_group, (GObject*)GTK_OBJECT (si->window));
++  gtk_window_add_accel_group ((GtkWindow*)GTK_OBJECT (si->window), accel_group);
+ #else
+   gtk_accel_group_attach (accel_group, GTK_OBJECT (si->window));
+ #endif
