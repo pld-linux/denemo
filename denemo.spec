@@ -1,7 +1,7 @@
 #
 # Conditional build:
-# _without_alsa	- without ALSA support
-# _with_gtk1	- use GTK+ 1.2 instead of GTK+ 2
+%bcond_without	alsa	# without ALSA support
+%bcond_with	gtk1	# use GTK+ 1.2 instead of GTK+ 2
 #
 Summary:	Gtk frontend for GNU lilypond
 Summary(pl):	Frontend Gtk na GNU lilypond
@@ -14,15 +14,15 @@ Source0:	http://dl.sourceforge.net/denemo/%{name}-%{version}.tar.gz
 # Source0-md5:	6a393359519648646164bf8855247318
 Patch0:		%{name}-opt.patch
 URL:		http://denemo.sourceforge.net/
-%{!?_without_alsa:BuildRequires:	alsa-lib-devel >= 0.9.0}
+%{?with_alsa:BuildRequires:	alsa-lib-devel >= 0.9.0}
 BuildRequires:	autoconf
 BuildRequires:	automake
-%{?_with_gtk1:BuildRequires:	gtk+-devel >= 1.2.0}
-%{!?_with_gtk1:BuildRequires:	gtk+2-devel >= 2.0.0}
+%{?with_gtk1:BuildRequires:	gtk+-devel >= 1.2.0}
+%{!?with_gtk1:BuildRequires:	gtk+2-devel >= 2.0.0}
 BuildRequires:	libtool
 BuildRequires:	libxml2-devel >= 2.0.0
 #BuildRequires:	niffsdk-devel
-%{!?_with_gtk1:BuildRequires:	pkgconfig}
+%{!?with_gtk1:BuildRequires:	pkgconfig}
 Requires:	TiMidity++
 Requires:	lilypond
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -58,7 +58,7 @@ Pliki nag³ówkowe do tworzenia wtyczek dla denemo.
 %patch -p1
 
 %build
-%{?_without_alsa:echo 'AC_DEFUN([AM_PATH_ALSA],[$3])' >> acinclude.m4}
+%{!?with_alsa:echo 'AC_DEFUN([AM_PATH_ALSA],[$3])' >> acinclude.m4}
 %{__libtoolize}
 %{__aclocal}
 %{__autoconf}
@@ -66,7 +66,7 @@ Pliki nag³ówkowe do tworzenia wtyczek dla denemo.
 %{__automake}
 CFLAGS="%{rpmcflags} %{?debug:-DDEBUG}"
 %configure \
-	%{!?_with_gtk1:--enable-gtk2} \
+	%{!?with_gtk1:--enable-gtk2} \
 	--with-plugins=analysis
 # ,niff - but it's incomplete (no interface between niff and denemo)
 
