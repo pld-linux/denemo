@@ -6,7 +6,7 @@ License:	GPL
 Group:		X11/Applications/Multimedia
 Group(de):	X11/Applikationen/Multimedia
 Group(pl):	X11/Aplikacje/Multimedia
-Source0:	http://download.sourceforge.net/denemo/%{name}-%{version}.tar.gz
+Source0:	ftp://download.sourceforge.net/pub/sourceforge/denemo/%{name}-%{version}.tar.gz
 URL:		http://denemo.sourceforge.net/
 BuildRequires:	gtk+-devel >= 1.2.0
 Requires:	lilypond
@@ -27,7 +27,6 @@ computer-music-related purposes as well.
 
 %build
 %configure
-
 %{__make} 
 
 %install
