@@ -3,8 +3,8 @@
 %bcond_without	alsa	# without ALSA support
 %bcond_with	gtk1	# use GTK+ 1.2 instead of GTK+ 2
 #
-Summary:	Gtk frontend for GNU lilypond
-Summary(pl):	Frontend Gtk na GNU lilypond
+Summary:	GTK+ frontend for GNU lilypond
+Summary(pl):	Frontend GTK+ na GNU lilypond
 Name:		denemo
 Version:	0.7.2a
 Release:	2
@@ -33,14 +33,14 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %define		_noautocompressdoc	*.ly
 
 %description
-Denemo is a graphical music notation program written in C with gtk+.
+Denemo is a graphical music notation program written in C with GTK+.
 
 It is intended to be used in conjunction with GNU Lilypond
 (http://www.cs.uu.nl/hanwen/lilypond/), but is adaptable to other
 computer-music-related purposes as well.
 
 %description -l pl
-Denemo to program do graficznej notacji muzycznej u¿ywaj±cy gtk+.
+Denemo to program do graficznej notacji muzycznej u¿ywaj±cy GTK+.
 
 Jest przeznaczony do u¿ywania z GNU Lilypond
 (http://www.cs.uu.nl/hanwen/lilypond/), ale mo¿e byæ zaadaptowany do
