@@ -6,12 +6,12 @@
 Summary:	Gtk frontend for GNU lilypond
 Summary(pl):	Frontend Gtk na GNU lilypond
 Name:		denemo
-Version:	0.7.2
+Version:	0.7.2a
 Release:	1
 License:	GPL
 Group:		X11/Applications/Sound
 Source0:	http://dl.sourceforge.net/denemo/%{name}-%{version}.tar.gz
-# Source0-md5:	6a393359519648646164bf8855247318
+# Source0-md5:	2d57e4d660e13eb6e476104c788046af
 Patch0:		%{name}-opt.patch
 URL:		http://denemo.sourceforge.net/
 %{?with_alsa:BuildRequires:	alsa-lib-devel >= 0.9.0}
@@ -26,6 +26,8 @@ BuildRequires:	libxml2-devel >= 2.0.0
 Requires:	TiMidity++
 Requires:	lilypond
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+
+%define		_noautocompressdoc	*.ly
 
 %description
 Denemo is a graphical music notation program written in C with gtk+.
@@ -66,6 +68,7 @@ Pliki nag³ówkowe do tworzenia wtyczek dla denemo.
 %{__automake}
 CFLAGS="%{rpmcflags} %{?debug:-DDEBUG}"
 %configure \
+	--disable-static \
 	%{!?with_gtk1:--enable-gtk2} \
 	--with-plugins=analysis
 # ,niff - but it's incomplete (no interface between niff and denemo)
@@ -80,15 +83,15 @@ rm -rf $RPM_BUILD_ROOT
 
 %find_lang %{name}
 
-# no *.{la,a} for modules - shut up check-files
-rm -f $RPM_BUILD_ROOT%{_libdir}/denemo/*.{la,a}
+# no *.la for modules - shut up check-files
+rm -f $RPM_BUILD_ROOT%{_libdir}/denemo/*.la
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc AUTHORS DESIGN GOALS NEWS README TODO
+%doc AUTHORS DESIGN GOALS NEWS README TODO examples/*.ly
 %attr(755,root,root) %{_bindir}/*
 %{_datadir}/%{name}
 %dir %{_libdir}/denemo
