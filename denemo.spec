@@ -38,7 +38,7 @@ innych celów zwi±zanych z muzyk±.
 
 %build
 rm -f missing
-aclocal
+%{__aclocal}
 %{__autoconf}
 %{__automake}
 CFLAGS="%{rpmcflags} %{?debug:-DDEBUG}"
