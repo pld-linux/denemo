@@ -21,7 +21,7 @@ URL:		http://denemo.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
 %{?with_gtk1:BuildRequires:	gtk+-devel >= 1.2.0}
-%{!?with_gtk1:BuildRequires:	gtk+2-devel >= 2.0.0}
+%{!?with_gtk1:BuildRequires:	gtk+2-devel >= 1:2.0.0}
 BuildRequires:	libtool
 BuildRequires:	libxml2-devel >= 2.0.0
 #BuildRequires:	niffsdk-devel
