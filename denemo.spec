@@ -1,17 +1,26 @@
+#
+# Conditional build:
+# _without_alsa	- without ALSA support
+# _with_gtk1	- use GTK+ 1.2 instead of GTK+ 2
+#
 Summary:	Gtk frontend for GNU lilypond
 Summary(pl):	Frontend Gtk na GNU lilypond
 Name:		denemo
-Version:	0.6.0
+Version:	0.7.1
 Release:	1
 License:	GPL
 Group:		X11/Applications/Sound
 Source0:	http://dl.sourceforge.net/denemo/%{name}-%{version}.tar.gz
-Patch0:		%{name}-libxml2.patch
+Patch0:		%{name}-opt.patch
 URL:		http://denemo.sourceforge.net/
+%{!?_without_alsa:BuildRequires:	alsa-lib-devel >= 0.9.0}
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	gtk+-devel >= 1.2.0
-BuildRequires:	libxml2-devel
+%{?_with_gtk1:BuildRequires:	gtk+-devel >= 1.2.0}
+%{!?_with_gtk1:BuildRequires:	gtk+2-devel >= 2.0.0}
+BuildRequires:	libtool
+BuildRequires:	libxml2-devel >= 2.0.0
+%{!?_with_gtk1:BuildRequires:	pkgconfig}
 Requires:	TiMidity++
 Requires:	lilypond
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -30,17 +39,35 @@ Jest przeznaczony do u¿ywania z GNU Lilypond
 (http://www.cs.uu.nl/hanwen/lilypond/), ale mo¿e byæ zaadaptowany do
 innych celów zwi±zanych z muzyk±.
 
+%package devel
+Summary:	Header files for denemo plugins development
+Summary(pl):	Pliki nag³ówkowe do tworzenia wtyczek dla denemo
+Group:		Development/Libraries
+# doesn't require base
+
+%description devel
+Header files for denemo plugins development.
+
+%description devel -l pl
+Pliki nag³ówkowe do tworzenia wtyczek dla denemo.
+
 %prep
 %setup -q
 %patch -p1
 
 %build
-rm -f missing
+%{?_without_alsa:echo 'AC_DEFUN([AM_PATH_ALSA],[$3])' >> acinclude.m4}
+%{__libtoolize}
 %{__aclocal}
 %{__autoconf}
+%{__autoheader}
 %{__automake}
 CFLAGS="%{rpmcflags} %{?debug:-DDEBUG}"
-%configure
+%configure \
+	%{!?_with_gtk1:--enable-gtk2} \
+	--with-plugins=analysis
+# <niff/*iff*.h> from niffsdk needed for niff plugin
+
 %{__make}
 
 %install
@@ -50,6 +77,9 @@ rm -rf $RPM_BUILD_ROOT
 
 %find_lang %{name}
 
+# no *.{la,a} for modules - shut up check-files
+rm -f $RPM_BUILD_ROOT%{_libdir}/denemo/*.{la,a}
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -58,3 +88,9 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS DESIGN GOALS NEWS README TODO
 %attr(755,root,root) %{_bindir}/*
 %{_datadir}/%{name}
+%dir %{_libdir}/denemo
+%attr(755,root,root) %{_libdir}/denemo/libanalyse.so*
+
+%files devel
+%defattr(644,root,root,755)
+%{_includedir}/denemo
