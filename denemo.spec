@@ -11,6 +11,7 @@ Release:	1
 License:	GPL
 Group:		X11/Applications/Sound
 Source0:	http://dl.sourceforge.net/denemo/%{name}-%{version}.tar.gz
+# Source0-md5:	c90fa4bd2f4cb4e72b3ee036f6c2568f
 Patch0:		%{name}-opt.patch
 URL:		http://denemo.sourceforge.net/
 %{!?_without_alsa:BuildRequires:	alsa-lib-devel >= 0.9.0}
