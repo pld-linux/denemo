@@ -5,8 +5,6 @@ Version:	0.5.5
 Release:	2
 License:	GPL
 Group:		X11/Applications/Multimedia
-Group(de):	X11/Applikationen/Multimedia
-Group(pl):	X11/Aplikacje/Multimedia
 Source0:	ftp://download.sourceforge.net/pub/sourceforge/denemo/%{name}-%{version}.tar.gz
 URL:		http://denemo.sourceforge.net/
 BuildRequires:	gtk+-devel >= 1.2.0
