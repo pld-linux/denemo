@@ -20,6 +20,7 @@ BuildRequires:	automake
 %{!?_with_gtk1:BuildRequires:	gtk+2-devel >= 2.0.0}
 BuildRequires:	libtool
 BuildRequires:	libxml2-devel >= 2.0.0
+#BuildRequires:	niffsdk-devel
 %{!?_with_gtk1:BuildRequires:	pkgconfig}
 Requires:	TiMidity++
 Requires:	lilypond
@@ -66,7 +67,7 @@ CFLAGS="%{rpmcflags} %{?debug:-DDEBUG}"
 %configure \
 	%{!?_with_gtk1:--enable-gtk2} \
 	--with-plugins=analysis
-# <niff/*iff*.h> from niffsdk needed for niff plugin
+# ,niff - but it's incomplete (no interface between niff and denemo)
 
 %{__make}
 
