@@ -26,7 +26,7 @@ computer-music-related purposes as well.
 %setup -q
 
 %build
-%configure
+%configure2_13
 %{__make} 
 
 %install
