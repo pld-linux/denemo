@@ -4,7 +4,7 @@ Name:		denemo
 Version:	0.6.0
 Release:	1
 License:	GPL
-Group:		X11/Applications/Multimedia
+Group:		X11/Applications/Sound
 Source0:	ftp://download.sourceforge.net/pub/sourceforge/denemo/%{name}-%{version}.tar.gz
 Patch0:		%{name}-libxml2.patch
 URL:		http://denemo.sourceforge.net/
