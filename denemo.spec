@@ -1,17 +1,19 @@
 Summary:	Gtk frontend for GNU lilypond
 Summary(pl):	Frontend Gtk na GNU lilypond
 Name:		denemo
-Version:	0.5.5
-Release:	3
+Version:	0.6.0
+Release:	1
 License:	GPL
 Group:		X11/Applications/Multimedia
 Source0:	ftp://download.sourceforge.net/pub/sourceforge/denemo/%{name}-%{version}.tar.gz
+Patch0:		%{name}-libxml2.patch
 URL:		http://denemo.sourceforge.net/
-BuildRequires:	gtk+-devel >= 1.2.0
 BuildRequires:	autoconf
 BuildRequires:	automake
-Requires:	lilypond
+BuildRequires:	gtk+-devel >= 1.2.0
+BuildRequires:	libxml2-devel
 Requires:	TiMidity++
+Requires:	lilypond
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
@@ -32,12 +34,14 @@ innych celów zwi±zanych z muzyk±.
 
 %prep
 %setup -q
+%patch -p1
 
 %build
 rm -f missing
 aclocal
 %{__autoconf}
 %{__automake}
+CFLAGS="%{rpmcflags} %{?debug:-DDEBUG}"
 %configure
 %{__make}
 
@@ -46,11 +50,13 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install DESTDIR=$RPM_BUILD_ROOT
 
-%clean
-rm -rf ${RPM_BUILD_ROOT}
+%find_lang %{name}
 
-%files
+%clean
+rm -rf $RPM_BUILD_ROOT
+
+%files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc NEWS README TODO GOALS DESIGN AUTHORS
+%doc AUTHORS DESIGN GOALS NEWS README TODO
 %attr(755,root,root) %{_bindir}/*
 %{_datadir}/%{name}

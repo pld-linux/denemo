@@ -1,0 +1,46 @@
+--- denemo-0.6.0/exportxml.c.orig	Tue May 28 09:58:55 2002
++++ denemo-0.6.0/exportxml.c	Wed Jul 24 23:07:35 2002
+@@ -15,7 +15,7 @@
+ #include <string.h>
+ 
+ /* libxml includes: for libxml2 this should be <libxml/tree.h> */
+-#include <tree.h>
++#include <libxml/tree.h>
+ 
+ 
+ #define XML_COMPRESSION_RATIO 3
+--- denemo-0.6.0/exportxml.h.orig	Tue Jun 26 10:04:47 2001
++++ denemo-0.6.0/exportxml.h	Wed Jul 24 23:10:17 2002
+@@ -14,7 +14,7 @@
+ #include <glib.h>
+ 
+ /* libxml includes: for libxml2 this should be <libxml/tree.h> */
+-#include <tree.h>
++#include <libxml/tree.h>
+ 
+ 
+ /*
+--- denemo-0.6.0/importxml.c.orig	Tue May 28 09:58:56 2002
++++ denemo-0.6.0/importxml.c	Wed Jul 24 23:17:50 2002
+@@ -18,8 +18,8 @@
+ #include <glib.h>
+ 
+ /* libxml includes: for libxml2 this should be <libxml/{parser,tree}.h> */
+-#include <parser.h>
+-#include <tree.h>
++#include <libxml/parser.h>
++#include <libxml/tree.h>
+ 
+ 
+ /* Defines for making traversing XML trees easier */
+--- denemo-0.6.0/importxml.h.orig	Tue Jun 26 10:07:19 2001
++++ denemo-0.6.0/importxml.h	Wed Jul 24 23:18:00 2002
+@@ -14,7 +14,7 @@
+ #include <glib.h>
+ 
+ /* libxml includes: for libxml2 this should be <libxml/tree.h> */
+-#include <tree.h>
++#include <libxml/tree.h>
+ 
+ 
+ /*
