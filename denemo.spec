@@ -31,8 +31,6 @@ rm -rf ${RPM_BUILD_ROOT}
 
 %files
 %defattr(644,root,root,755)
-%doc html examples ps
-%doc README LICENSE
-%attr(755,root,root) %{_bindir}/doxygen
-%attr(755,root,root) %{_bindir}/doxytag
-%attr(755,root,root) %{_bindir}/doxysearch
+%doc NEWS* README* TODO* GOALS* DESIGN* AUTHORS*
+%attr(755,root,root) %{_bindir}/*
+%{_datadir}/%{name}
