@@ -16,7 +16,6 @@ Requires:	TiMidity++
 Requires:	lilypond
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		_prefix		/usr/X11R6
 
 %description
 Denemo is a graphical music notation program written in C with gtk+.
