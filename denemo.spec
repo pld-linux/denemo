@@ -5,7 +5,7 @@ Version:	0.6.0
 Release:	1
 License:	GPL
 Group:		X11/Applications/Sound
-Source0:	ftp://download.sourceforge.net/pub/sourceforge/denemo/%{name}-%{version}.tar.gz
+Source0:	http://dl.sourceforge.net/denemo/%{name}-%{version}.tar.gz
 Patch0:		%{name}-libxml2.patch
 URL:		http://denemo.sourceforge.net/
 BuildRequires:	autoconf
@@ -15,7 +15,6 @@ BuildRequires:	libxml2-devel
 Requires:	TiMidity++
 Requires:	lilypond
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-
 
 %description
 Denemo is a graphical music notation program written in C with gtk+.
