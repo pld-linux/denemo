@@ -1,0 +1,15 @@
+--- denemo-0.7.2a/plugins/analysis/Makefile.am~	2004-08-06 01:41:26.000000000 +0200
++++ denemo-0.7.2a/plugins/analysis/Makefile.am	2004-08-06 01:41:26.000000000 +0200
+@@ -14,3 +14,4 @@
+ 
+ libanalyse_la_LDFLAGS = -module -version-info 1:0:0
+ 
++CPPFLAGS += $(XML_CPPFLAGS)
+--- denemo-0.7.2a/src/Makefile.am~	2004-08-06 01:53:29.000000000 +0200
++++ denemo-0.7.2a/src/Makefile.am	2004-08-06 01:53:29.000000000 +0200
+@@ -58,3 +58,5 @@
+ 
+ lylexer.cpp: lylexer.l
+ 	flex -Ply  -o$(srcdir)/lylexer.cpp $(srcdir)/lylexer.l  
++
++CPPFLAGS += $(XML_CPPFLAGS)
