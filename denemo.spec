@@ -6,12 +6,12 @@
 Summary:	Gtk frontend for GNU lilypond
 Summary(pl):	Frontend Gtk na GNU lilypond
 Name:		denemo
-Version:	0.7.1
+Version:	0.7.2
 Release:	1
 License:	GPL
 Group:		X11/Applications/Sound
 Source0:	http://dl.sourceforge.net/denemo/%{name}-%{version}.tar.gz
-# Source0-md5:	c90fa4bd2f4cb4e72b3ee036f6c2568f
+# Source0-md5:	6a393359519648646164bf8855247318
 Patch0:		%{name}-opt.patch
 URL:		http://denemo.sourceforge.net/
 %{!?_without_alsa:BuildRequires:	alsa-lib-devel >= 0.9.0}
