@@ -15,6 +15,7 @@ Source0:	http://dl.sourceforge.net/denemo/%{name}-%{version}.tar.gz
 Patch0:		%{name}-opt.patch
 Patch1:		%{name}-po.patch
 Patch2:		%{name}-am.patch
+Patch3:		%{name}-gtk24_link.patch
 URL:		http://denemo.sourceforge.net/
 %{?with_alsa:BuildRequires:	alsa-lib-devel >= 0.9.0}
 BuildRequires:	autoconf
@@ -62,6 +63,7 @@ Pliki nag³ówkowe do tworzenia wtyczek dla denemo.
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
+%patch3 -p1
 
 %build
 %{!?with_alsa:echo 'AC_DEFUN([AM_PATH_ALSA],[$3])' >> acinclude.m4}
