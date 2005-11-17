@@ -1,6 +1,6 @@
---- denemo-0.7.3beta2/configure.in.orig	2005-04-03 16:43:10.000000000 +0200
-+++ denemo-0.7.3beta2/configure.in	2005-10-30 15:18:10.402061032 +0100
-@@ -37,7 +37,7 @@
+--- denemo-0.7.4/configure.in.orig	2005-11-02 23:39:06.000000000 +0100
++++ denemo-0.7.4/configure.in	2005-11-17 21:17:43.778072568 +0100
+@@ -38,7 +38,7 @@
  	    )
  #if test "x$usegtk2" = "xyes"; then
  	PKG_CHECK_MODULES(DENEMO, gtk+-2.0 >= 2.0.3)
@@ -9,11 +9,11 @@
  	LIBS="$DENEMO_LIBS"
  #else
  #AM_PATH_GTK(1.2.0, [LIBS="$LIBS $GTK_LIBS"
-@@ -187,7 +187,7 @@
+@@ -188,7 +188,7 @@
  AC_SUBST(CPPFLAGS)
  AC_SUBST(LDFLAGS)
  
--CXXFLAGS="$CFLAGS -g -Wall -O2"
+-CXXFLAGS="$CFLAGS -Wall -O2"
 +CXXFLAGS="$CFLAGS -Wall"
  AC_SUBST(CXXFLAGS)
  
