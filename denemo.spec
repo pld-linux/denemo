@@ -1,13 +1,12 @@
 Summary:	GTK+ frontend for GNU lilypond
 Summary(pl):	Frontend GTK+ na GNU lilypond
 Name:		denemo
-Version:	0.7.3
-%define	bver	beta2
-Release:	0.%{bver}.1
+Version:	0.7.4
+Release:	1
 License:	GPL
 Group:		X11/Applications/Sound
-Source0:	http://dl.sourceforge.net/denemo/%{name}-%{version}%{bver}.tar.gz
-# Source0-md5:	05baa26c359c388a2be280bf5aff048b
+Source0:	http://dl.sourceforge.net/denemo/%{name}-%{version}.tar.gz
+# Source0-md5:	5a5680b2dab63a6217c0ab7c30be0730
 Patch0:		%{name}-opt.patch
 URL:		http://denemo.sourceforge.net/
 BuildRequires:	autoconf >= 2.59
@@ -49,7 +48,7 @@ Header files for denemo plugins development.
 Pliki nag³ówkowe do tworzenia wtyczek dla denemo.
 
 %prep
-%setup -q -n %{name}-%{version}%{bver}
+%setup -q
 %patch0 -p1
 
 %build
@@ -83,12 +82,12 @@ rm -rf $RPM_BUILD_ROOT
 %files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog DESIGN* GOALS NEWS README* TODO
-%attr(755,root,root) %{_bindir}/*
-%{_datadir}/%{name}
+%attr(755,root,root) %{_bindir}/denemo
+%{_datadir}/denemo
 %dir %{_libdir}/denemo
 %attr(755,root,root) %{_libdir}/denemo/libanalyse.so*
-%{_sysconfdir}/denemoui.xml
 %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/denemo.conf
+%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/denemo.keymaprc
 
 %files devel
 %defattr(644,root,root,755)
