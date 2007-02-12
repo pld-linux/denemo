@@ -1,5 +1,5 @@
 Summary:	GTK+ frontend for GNU lilypond
-Summary(pl):	Frontend GTK+ na GNU lilypond
+Summary(pl.UTF-8):   Frontend GTK+ na GNU lilypond
 Name:		denemo
 Version:	0.7.4
 Release:	1
@@ -28,24 +28,24 @@ It is intended to be used in conjunction with GNU Lilypond
 (http://www.cs.uu.nl/hanwen/lilypond/), but is adaptable to other
 computer-music-related purposes as well.
 
-%description -l pl
-Denemo to program do graficznej notacji muzycznej u¿ywaj±cy GTK+.
+%description -l pl.UTF-8
+Denemo to program do graficznej notacji muzycznej uÅ¼ywajÄ…cy GTK+.
 
-Jest przeznaczony do u¿ywania z GNU Lilypond
-(http://www.cs.uu.nl/hanwen/lilypond/), ale mo¿e byæ zaadaptowany do
-innych celów zwi±zanych z muzyk±.
+Jest przeznaczony do uÅ¼ywania z GNU Lilypond
+(http://www.cs.uu.nl/hanwen/lilypond/), ale moÅ¼e byÄ‡ zaadaptowany do
+innych celÃ³w zwiÄ…zanych z muzykÄ….
 
 %package devel
 Summary:	Header files for denemo plugins development
-Summary(pl):	Pliki nag³ówkowe do tworzenia wtyczek dla denemo
+Summary(pl.UTF-8):   Pliki nagÅ‚Ã³wkowe do tworzenia wtyczek dla denemo
 Group:		Development/Libraries
 # doesn't require base
 
 %description devel
 Header files for denemo plugins development.
 
-%description devel -l pl
-Pliki nag³ówkowe do tworzenia wtyczek dla denemo.
+%description devel -l pl.UTF-8
+Pliki nagÅ‚Ã³wkowe do tworzenia wtyczek dla denemo.
 
 %prep
 %setup -q
