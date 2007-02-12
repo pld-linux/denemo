@@ -1,5 +1,5 @@
 Summary:	GTK+ frontend for GNU lilypond
-Summary(pl.UTF-8):   Frontend GTK+ na GNU lilypond
+Summary(pl.UTF-8):	Frontend GTK+ na GNU lilypond
 Name:		denemo
 Version:	0.7.4
 Release:	1
@@ -37,7 +37,7 @@ innych celów związanych z muzyką.
 
 %package devel
 Summary:	Header files for denemo plugins development
-Summary(pl.UTF-8):   Pliki nagłówkowe do tworzenia wtyczek dla denemo
+Summary(pl.UTF-8):	Pliki nagłówkowe do tworzenia wtyczek dla denemo
 Group:		Development/Libraries
 # doesn't require base
 
