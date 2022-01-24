@@ -14,7 +14,7 @@ Summary:	GTK+ frontend for GNU lilypond
 Summary(pl.UTF-8):	Frontend GTK+ na GNU lilypond
 Name:		denemo
 Version:	2.5.0
-Release:	1
+Release:	2
 License:	GPL v3+
 Group:		X11/Applications/Sound
 Source0:	https://ftp.gnu.org/gnu/denemo/%{name}-%{version}.tar.gz
