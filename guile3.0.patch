@@ -1,0 +1,38 @@
+--- denemo-2.5.0/configure.ac~	2021-02-10 05:01:18.000000000 +0100
++++ denemo-2.5.0/configure.ac	2022-03-12 13:48:43.205226842 +0100
+@@ -99,8 +99,25 @@
+     fi
+   ], [ useguile_2_2=no ])
+ 
+-if [test "x$useguile_1_8" = "xno"] && [test "x$useguile_2_0" = "xno"] && [test "x$useguile_2_2" = "xno"]; then
+-  PKG_CHECK_MODULES([GUILE_2_2], [guile-2.2],
++AC_ARG_ENABLE(
++  guile_3_0,
++  AS_HELP_STRING([--enable-guile_3_0], [use GUILE_3_0 @<:@default=no@:>@]),
++  [
++    if test "x$enableval" != "xno"; then
++      useguile_3_0=yes
++      PKG_CHECK_MODULES(GUILE_3_0, guile-3.0 >= 3.0)
++      LIBS="$LIBS $GUILE_3_0_LIBS"
++      CFLAGS="$CFLAGS $GUILE_3_0_CFLAGS"
++    fi
++  ], [ useguile_3_0=no ])
++
++if [test "x$useguile_1_8" = "xno"] && [test "x$useguile_2_0" = "xno"] && [test "x$useguile_2_2" = "xno"] && [test "x$useguile_3_0" = "xno"]; then
++  PKG_CHECK_MODULES([GUILE_3_0], [guile-3.0],
++    [ useguile_3_0=yes
++      LIBS="$LIBS $GUILE_3_0_LIBS"
++      CFLAGS="$CFLAGS $GUILE_3_0_CFLAGS"
++    ],
++  [PKG_CHECK_MODULES([GUILE_2_2], [guile-2.2],
+     [ useguile_2_2=yes
+       LIBS="$LIBS $GUILE_2_2_LIBS"
+       CFLAGS="$CFLAGS $GUILE_2_2_CFLAGS"
+@@ -117,6 +134,7 @@
+         ]
+       )]
+     )]
++    )]
+   )
+ fi
+ 

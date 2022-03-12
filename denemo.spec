@@ -14,12 +14,13 @@ Summary:	GTK+ frontend for GNU lilypond
 Summary(pl.UTF-8):	Frontend GTK+ na GNU lilypond
 Name:		denemo
 Version:	2.5.0
-Release:	2
+Release:	3
 License:	GPL v3+
 Group:		X11/Applications/Sound
 Source0:	https://ftp.gnu.org/gnu/denemo/%{name}-%{version}.tar.gz
 # Source0-md5:	6382d9f4cde24feab1121963801fe32f
 Patch0:		%{name}-fontsdir.patch
+Patch1:		guile3.0.patch
 URL:		http://www.denemo.org/
 %{?with_alsa:BuildRequires:	alsa-lib-devel >= 1.0.0}
 %{?with_aubio:BuildRequires:	aubio-devel >= 0.4.0}
@@ -76,6 +77,7 @@ ale może być zaadaptowany do innych celów związanych z muzyką.
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
 
 %build
 %{__intltoolize}
