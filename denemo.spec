@@ -13,12 +13,12 @@
 Summary:	GTK+ frontend for GNU lilypond
 Summary(pl.UTF-8):	Frontend GTK+ na GNU lilypond
 Name:		denemo
-Version:	2.5.0
-Release:	3
+Version:	2.6.0
+Release:	1
 License:	GPL v3+
 Group:		X11/Applications/Sound
 Source0:	https://ftp.gnu.org/gnu/denemo/%{name}-%{version}.tar.gz
-# Source0-md5:	6382d9f4cde24feab1121963801fe32f
+# Source0-md5:	3267b27350e7a103cd809012aeb15e43
 Patch0:		%{name}-fontsdir.patch
 Patch1:		guile3.0.patch
 URL:		http://www.denemo.org/
@@ -121,8 +121,8 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/pageswitcher
 %attr(755,root,root) %{_bindir}/pageturner
 %attr(755,root,root) %{_bindir}/twopageturner
-%{_datadir}/appdata/denemo.appdata.xml
+%{_datadir}/appdata/org.denemo.Denemo.appdata.xml
 %{_datadir}/denemo
 %{_fontsdir}/denemo
-%{_desktopdir}/denemo.desktop
-%{_pixmapsdir}/denemo.png
+%{_desktopdir}/org.denemo.Denemo.desktop
+%{_pixmapsdir}/org.denemo.Denemo.png
