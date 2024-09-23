@@ -14,14 +14,14 @@ Summary:	GTK+ frontend for GNU lilypond
 Summary(pl.UTF-8):	Frontend GTK+ na GNU lilypond
 Name:		denemo
 Version:	2.6.0
-Release:	1
+Release:	2
 License:	GPL v3+
 Group:		X11/Applications/Sound
 Source0:	https://ftp.gnu.org/gnu/denemo/%{name}-%{version}.tar.gz
 # Source0-md5:	3267b27350e7a103cd809012aeb15e43
 Patch0:		%{name}-fontsdir.patch
 Patch1:		guile3.0.patch
-URL:		http://www.denemo.org/
+URL:		https://www.denemo.org/
 %{?with_alsa:BuildRequires:	alsa-lib-devel >= 1.0.0}
 %{?with_aubio:BuildRequires:	aubio-devel >= 0.4.0}
 BuildRequires:	autoconf >= 2.59
@@ -51,6 +51,7 @@ BuildRequires:	librsvg-devel >= 2.0
 BuildRequires:	libsmf-devel >= 1.3
 BuildRequires:	libsndfile-devel >= 1.0
 BuildRequires:	libstdc++-devel
+BuildRequires:	libtool
 BuildRequires:	libxml2-devel >= 2.3.10
 BuildRequires:	pkgconfig
 %{?with_portaudio:BuildRequires:	portaudio-devel >= 19}
@@ -81,6 +82,7 @@ ale może być zaadaptowany do innych celów związanych z muzyką.
 
 %build
 %{__intltoolize}
+%{__libtoolize}
 %{__aclocal} -I build
 %{__autoconf}
 %{__autoheader}
