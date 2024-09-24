@@ -1,0 +1,22 @@
+--- denemo-2.6.0/src/source/proof.c.orig	2022-03-11 13:15:53.614541275 +0100
++++ denemo-2.6.0/src/source/proof.c	2024-09-24 06:19:38.994756909 +0200
+@@ -279,8 +279,7 @@ press (EvView * view,  GdkEventButton  *
+     if (event->button != 1)
+         infodialog (help_text);
+     nearest_annotation_text = NULL;
+-    extern EvMappingList * ev_document_annotations_get_annotations();
+-    EvMappingList *mapping_list = ev_document_annotations_get_annotations (doc, ev_document_get_page(doc, i));
++    EvMappingList *mapping_list = ev_document_annotations_get_annotations (EV_DOCUMENT_ANNOTATIONS(doc), ev_document_get_page(doc, i));
+     if(mapping_list)
+     {
+     gdouble nearest = G_MAXDOUBLE;
+@@ -312,8 +311,7 @@ find_annotated_pages (EvDocumentModel *m
+     gint i;
+     for (i=0; i< ev_document_get_n_pages(doc);i++)
+         {
+-            extern EvMappingList * ev_document_annotations_get_annotations();
+-            EvMappingList *mapping_list = ev_document_annotations_get_annotations (doc, ev_document_get_page(doc, i));
++            EvMappingList *mapping_list = ev_document_annotations_get_annotations (EV_DOCUMENT_ANNOTATIONS(doc), ev_document_get_page(doc, i));
+             if(mapping_list)
+             {
+              annotated_pages = g_list_append (annotated_pages, GINT_TO_POINTER(i));

@@ -21,6 +21,8 @@ Source0:	https://ftp.gnu.org/gnu/denemo/%{name}-%{version}.tar.gz
 # Source0-md5:	3267b27350e7a103cd809012aeb15e43
 Patch0:		%{name}-fontsdir.patch
 Patch1:		guile3.0.patch
+Patch2:		%{name}-includes.patch
+Patch3:		%{name}-evince.patch
 URL:		https://www.denemo.org/
 %{?with_alsa:BuildRequires:	alsa-lib-devel >= 1.0.0}
 %{?with_aubio:BuildRequires:	aubio-devel >= 0.4.0}
@@ -79,6 +81,8 @@ ale może być zaadaptowany do innych celów związanych z muzyką.
 %setup -q
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
+%patch3 -p1
 
 %build
 %{__intltoolize}
